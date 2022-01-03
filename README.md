@@ -1,6 +1,6 @@
 # Election_Analysis
 
-##Project Overivew
+## Project Overivew
 There was a local election and the Colorado Board of Elections requested the creation of an election audit tool. This tool needs to be able to 
 1. Calculate total number of ballots cast
 2. List of candidates who received votes.
@@ -8,11 +8,11 @@ There was a local election and the Colorado Board of Elections requested the cre
 4. Calculate percentage of total votes each candidate received
 5. Determine winner of election based on popular vote.
 
-##Resources
+## Resources
 - Data source: election_results.csv
 - Software: Python 3.9, VS Code
 
-##Summary
+## Summary
 The analysis of the elections shows that:
 - There were 369,711 votes cast in the election
 - The candidates were:
