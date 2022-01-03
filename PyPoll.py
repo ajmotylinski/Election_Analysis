@@ -68,6 +68,12 @@ with open(file_to_load) as election_data:
 
             #Print out candidate name, percentage, and raw votes
             #print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+            candidate_results = (f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+            
+            # Print each candidate, their voter count, and percentage to the terminal.
+            print(candidate_results)
+            #  Save the candidate results to our text file.
+            txt_file.write(candidate_results)
 
             #Determine winning vote and percentage
             if (votes > winning_count) and (vote_percentage > winning_percentage):
@@ -84,4 +90,6 @@ with open(file_to_load) as election_data:
         f"-------------------------\n")
         
         # Printing summary to console
-        #print(winning_candidate_summary)
+        print(winning_candidate_summary)
+        #Print winning summary to file
+        txt_file.write(winning_candidate_summary)
