@@ -1,9 +1,3 @@
-#The data we need to retrieve
-# 1. Total number of votes
-# 2. List of candidates that received votes
-# 3. Percentage of votes for each candidate
-# 4. Total number of votes for each candidate
-# 5. Winner of election based on popular vote
 
 # Add our dependencies.
 import csv
@@ -13,13 +7,39 @@ file_to_load = os.path.join("Resources", "election_results.csv")
 # Assign a variable to save the file to a path.
 file_to_save = os.path.join("analysis", "election_analysis.txt")
 
+# Initialize Total number of votes to zero
+total_votes = 0
+
+#List to hold candidates
+candidate_options= []
+
+#Dictionary for votes for each candidate
+candidate_votes = {}
+
 # Open the election results and read the file.
 with open(file_to_load) as election_data:
-    
-    # To do: read and analyze the data here.
-    # Read the file object with the reader function.
     file_reader = csv.reader(election_data)
 
-    #Print the header rows.
+    # Read the header row.
     headers = next(file_reader)
-    print (headers)
+
+    # Loop throught each record in loaded file
+    for row in file_reader:
+        #increment total votes 
+        total_votes = total_votes+1
+        
+        #read in candidate name from row
+        candidate_name = row[2]
+        
+        #see if candidate name is in list of candidate options
+        if candidate_name not in candidate_options:
+            #append candidate to list of candidate_options 
+            candidate_options.append(candidate_name)
+
+            #Add candidate to candidate_votes dictionary with initial value of 0
+            candidate_votes[candidate_name]=0
+
+        #Increment votes for candidate
+        candidate_votes[candidate_name] +=1
+
+    print(candidate_votes)
