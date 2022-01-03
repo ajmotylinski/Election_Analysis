@@ -42,4 +42,12 @@ with open(file_to_load) as election_data:
         #Increment votes for candidate
         candidate_votes[candidate_name] +=1
 
-    print(candidate_votes)
+    #Determine percentage of votes for each candidate by looping thorugh the candidates_votes dictionary
+    for candidate_name in candidate_votes:
+        #Get votes for candidate
+        votes = candidate_votes[candidate_name]
+
+        #Calculate percentage based on votes and total_votes
+        vote_percentage = float(votes) / float(total_votes) *100
+
+        print(f"{candidate_name}: received {vote_percentage:.1f}% of the vote.")
